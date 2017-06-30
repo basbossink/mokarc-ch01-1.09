@@ -19,8 +19,8 @@ static const char to_be_deduped = '.';
 static const char* a = "";
 static const char* a_exp = "";
 output_buffer(a);
-static const char* b = "x";
-static const char* b_exp = "x";
+static const char* b = "x.x";
+static const char* b_exp = "x.x";
 output_buffer(b);
 static const char* c = "x..x";
 static const char* c_exp = "x.x";
@@ -31,13 +31,14 @@ output_buffer(d);
 static const char* e = ".x..x...x";
 static const char* e_exp = ".x.x.x";
 output_buffer(e);
-static const char* f = "x..x....x..";
+static const char* f = "x..x....x.";
 static const char* f_exp = "x.x.x.";
 output_buffer(f);
 static const char* g = "x..x...";
 static const char* g_exp = "x.x.";
 output_buffer(g);
 
+#undef output_buffer
 
 #define get_character_stub(input) int get_character_stub_##input(void) {\
   static size_t call_count = 0;\

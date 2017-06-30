@@ -14,7 +14,7 @@ EXECUTABLE:=$(OUTPUT_DIR)/dedup-blanks
 
 all: $(TEST_EXECUTABLE) $(EXECUTABLE)
 	@./$(TEST_EXECUTABLE)
-	cat Makefile | ./$(EXECUTABLE) 
+	cat main/main.c | ./$(EXECUTABLE)
 
 
 $(TEST_EXECUTABLE): $(OBJECTS) $(TEST_OBJECTS) | $(OUTPUT_DIR)

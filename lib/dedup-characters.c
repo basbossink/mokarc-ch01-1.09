@@ -10,14 +10,13 @@ dedup_characters(get_character source, put_character sink, char to_dedup) {
   int current_character = 0;
   int previous_character = 0;
   while((previous_character = source()) != EOF) {
+    sink(previous_character);
+    if(previous_character == to_dedup) {
     while(
       (current_character = source()) != EOF &&
-      current_character == to_dedup &&
-      previous_character == to_dedup)
+      current_character == to_dedup)
       ;
-    sink(previous_character);
-    if(current_character != to_dedup) {
-      sink(current_character);
+     sink(current_character);
     }
   }
 }
