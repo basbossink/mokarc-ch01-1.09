@@ -1,4 +1,2 @@
-#include <stdbool.h>
-
-bool
+void
 capsicumize(void);

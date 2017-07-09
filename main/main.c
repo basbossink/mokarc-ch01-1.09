@@ -8,9 +8,7 @@ int
 main(int argc, char **argv) {
   (void)argc;
   (void)argv;
-  if(!capsicumize()) {
-    return EXIT_FAILURE;
-  }
+  capsicumize();
   dedup_characters(getchar, putchar, ' ');
   return EXIT_SUCCESS;
 }
